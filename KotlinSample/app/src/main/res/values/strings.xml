@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KotlinSample</string>
+    <string name="button_2">VIEW BINDING 코틀린</string>
+    <string name="button_1">VIEW BINDING 자바</string>
+</resources>
