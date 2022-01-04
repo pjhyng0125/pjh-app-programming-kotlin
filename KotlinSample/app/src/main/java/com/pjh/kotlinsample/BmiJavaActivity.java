@@ -25,14 +25,11 @@ public class BmiJavaActivity extends AppCompatActivity {
         weightField = findViewById(R.id.weight);
         resultLabel = findViewById(R.id.resultLabel);
 
-        bmiButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        bmiButton.setOnClickListener(v -> {
                 String tall = tallField.getText().toString();
                 String weight = weightField.getText().toString();
                 double bmi = Double.parseDouble(weight) / Math.pow(Double.parseDouble(tall) /100.0,2);
                 resultLabel.setText("키: " + tall + ", 체중: " + weight + ", BMI: " + bmi);
-            }
-        });
+            });
     }
 }

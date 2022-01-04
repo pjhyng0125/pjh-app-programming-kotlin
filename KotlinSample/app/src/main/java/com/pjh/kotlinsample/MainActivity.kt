@@ -20,5 +20,25 @@ class MainActivity : AppCompatActivity() {
             // 버튼2 클릭 시 수행
             startActivity(Intent(this@MainActivity, BmiKotlinActivity::class.java))
         }
+
+        findViewById<Button>(R.id.button3).setOnClickListener {
+            // 버튼3 클릭 시 수행
+            startActivity(Intent(this@MainActivity, VariableJavaActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.button4).setOnClickListener {
+            // 버튼4 클릭 시 수행
+            startActivity(Intent(this@MainActivity, VariableKotlinActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.button5).setOnClickListener {
+            // 흐름제어 자바 클릭
+            startActivity(Intent(this@MainActivity, ControlJavaActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.button6).setOnClickListener {
+            // 흐름제어 코틀린 클릭
+            startActivity(Intent(this@MainActivity, ControlKotlinMainActivity::class.java))
+        }
     }
 }
