@@ -6,22 +6,20 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
-class ControlKotlinMainActivity : AppCompatActivity() {
+class ControlKotlinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.layout_control)
 
-        val button = findViewById<Button>(R.id.button7)
+        val button = findViewById<Button>(R.id.button6)
         val numberField = findViewById<TextView>(R.id.numberField)
         button.setOnClickListener { 
             val number = numberField.text.toString().toInt()
-            
-            if (number % 2 == 0) {
-                Toast.makeText(applicationContext, "${number} 는 2의 배수 입니다!", Toast.LENGTH_SHORT).show()
-            } else if (number % 3 == 0) {
-                Toast.makeText(applicationContext, "${number} 는 3의 배수 입니다!", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(applicationContext, "${number}", Toast.LENGTH_SHORT).show()
+
+            when {
+                number % 2 == 0 -> toast("[kotlin] ${number} 는 2의 배수 입니다!");
+                number % 3 == 0 -> toast(msg = "[kotlin] ${number} 는 3의 배수 입니다!", length = Toast.LENGTH_LONG);
+                else -> toastShort("[kotlin] ${number}");
             }
             
             when (number) {

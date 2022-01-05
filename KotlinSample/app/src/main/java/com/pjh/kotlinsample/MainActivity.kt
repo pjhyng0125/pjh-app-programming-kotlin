@@ -36,9 +36,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, ControlJavaActivity::class.java))
         }
 
-        findViewById<Button>(R.id.button6).setOnClickListener {
+        findViewById<Button>(R.id.button7).setOnClickListener {
             // 흐름제어 코틀린 클릭
-            startActivity(Intent(this@MainActivity, ControlKotlinMainActivity::class.java))
+            startActivity(Intent(this@MainActivity, ControlKotlinActivity::class.java))
         }
     }
 }

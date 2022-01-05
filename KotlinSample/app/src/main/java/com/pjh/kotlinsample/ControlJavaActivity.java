@@ -31,15 +31,20 @@ public class ControlJavaActivity extends AppCompatActivity {
                 int number = Integer.parseInt(numberField.getText().toString());
                 // 조건 분기
                 if (number % 2 == 0) {
-                    Toast.makeText(getApplicationContext(), "" + number + "는 2의 배수입니다.", Toast.LENGTH_SHORT).show();
+                    ToastUtil.toast("[java] " +  number + "는 2의 배수입니다!");
                 } else if (number % 3 == 0) {
-                    Toast.makeText(getApplicationContext(), "" + number + "는 3의 배수입니다.", Toast.LENGTH_SHORT).show();
+                    ToastUtil.toast("[java] " +  number + "는 3의 배수입니다!", Toast.LENGTH_LONG);
                 } else {
-                    Toast.makeText(getApplicationContext(), "" + number, Toast.LENGTH_SHORT).show();
+//                    ToastUtilJava.toastShort("[java] " + number);
+//                    ToastUtilKotlinKt.toastLong("[java] " + number);
+                    ToastUtil.toastLong("[java] " + number);
                 }
 
                 // 텍스트 변경
                 switch (number) {
+                    case 1:
+                    case 2:
+                    case 3:
                     case 4:
                         button.setText("실행 - 4");
                         break;
