@@ -39,4 +39,37 @@ public class JavaTest {
         personK.setNickname("Apple");
         Assert.assertEquals("apple", personK.getNickname());
     }
+
+    @Test
+    public void testSingletonjava() {
+        // 'SingletonJava()' has private access in 'com.pjh.kotlinsample.SingletonJava'
+//        SingletonJava singletonJava = new SingletonJava();
+
+        // 매번 비슷한 코드 작성하는 것이 번거로움
+        SingletonJava sj = SingletonJava.getInstance();
+        sj.log("hello jinbro");
+    }
+
+    @Test
+    public void testFruit() {
+        FruitJava fj = new FruitJava();
+        fj.fruitName = "사과";
+        fj.description = "맛있는 사과";
+        System.out.println(fj);
+    }
+
+    @Test
+    public void testFruitEquals() {
+        FruitJava fj1 = new FruitJava();
+        FruitJava fj2 = new FruitJava();
+
+        fj1.fruitName = "바나나";
+        fj2.fruitName = "바나나";
+
+        fj1.description = "달콤한 바나나";
+        fj2.description = "달콤한 바나나";
+
+//        Assert.assertEquals(fj1, fj2);
+        Assert.assertEquals(fj1.hashCode(), fj2.hashCode());
+    }
 }

@@ -68,4 +68,21 @@ class KotlinTest {
         Assert.assertEquals("dog", animal.map["name"])
         Assert.assertEquals(21, animal.map["age"])
     }
+
+    @Test
+    fun testSingletonKotlin() {
+        SingletonKotlin.log("hello jinbro (kotlin)")
+    }
+
+    @Test
+    fun testFruit() {
+        val f1 = Fruit("바나나", "긴 바나나")
+        val f2 = Fruit("바나나", "긴 바나나")
+
+        println(f1)
+        println(f2)
+
+        Assert.assertEquals(f1, f2)
+        Assert.assertEquals(f1.hashCode(), f2.hashCode())
+    }
 }
