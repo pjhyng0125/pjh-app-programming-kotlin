@@ -114,4 +114,10 @@ class KotlinTest {
         println(list2.map { "value3: ${it}" })
         println(list2.flatMap {it.toList()}) // 리스트 평평하게 하여 배열 반환
     }
+
+    @Test
+    fun testExtenstionsString() {
+        val str = "Hello. jinBro"
+        Assert.assertEquals("o", str.lastString())
+    }
 }

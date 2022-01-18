@@ -1,5 +1,7 @@
 package com.pjh.kotlinsample;
 
+import androidx.core.text.StringKt;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -71,5 +73,12 @@ public class JavaTest {
 
 //        Assert.assertEquals(fj1, fj2);
         Assert.assertEquals(fj1.hashCode(), fj2.hashCode());
+    }
+
+    @Test
+    public void testExtFunc() {
+        // Java에서 Kotlin 확장 함수 호출 방법 동일
+        String lastString = StringUtil.lastString("Kotlin JJANG");
+        Assert.assertEquals("G", lastString);
     }
 }
