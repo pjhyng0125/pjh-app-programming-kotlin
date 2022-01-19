@@ -81,4 +81,16 @@ public class JavaTest {
         String lastString = StringUtil.lastString("Kotlin JJANG");
         Assert.assertEquals("G", lastString);
     }
+
+    @Test
+    public void testNPE1() {
+        NPE npe = new NPE();
+        Assert.assertEquals(3, npe.strLen("abc"));
+        Assert.assertEquals(0, npe.strLen(null));
+    }
+
+    @Test
+    public void testNullType() {
+        Assert.assertEquals(true, null instanceof String);
+    }
 }
