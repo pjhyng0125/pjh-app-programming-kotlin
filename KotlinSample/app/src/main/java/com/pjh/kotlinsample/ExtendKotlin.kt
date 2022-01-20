@@ -16,5 +16,4 @@ open class ExtendKotlin {
     override fun toString(): String {
         return super.toString()
     }
-
 }

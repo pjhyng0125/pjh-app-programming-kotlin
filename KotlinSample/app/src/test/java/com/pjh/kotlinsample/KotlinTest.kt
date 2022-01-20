@@ -116,6 +116,41 @@ class KotlinTest {
     }
 
     @Test
+    fun testCollectionApi2() {
+        val saladList = listOf("닭가슴살샐러드", "훈제오리샐러드", "겉절이")
+        println("fileter : " + saladList.filter { item -> item.contains("샐러드") })
+        println("map : " + saladList.map { "${it} 먹고싶다!" }) // params 가 하나인 경우 it 키워드 접근 가능
+        println("find (equals) : " + saladList.find{ it === "닭가슴살샐러드" })
+        println("find (contains) : " + saladList.find{ it.contains("샐러드") }) // 무조건 1개 요소만 반환
+        println("group by : " + saladList.groupBy { it.javaClass }) // Map<String, List<T> 반환
+
+        val bobList = listOf("짬뽕밥", "김밥")
+        val foodList = listOf(saladList, bobList)
+        println("flatMap (merge) : " + foodList.flatMap { it.toList() })
+    }
+
+    @Test
+    fun testCollectionApi3() {
+        val canBuyPriceRange = { s: Salad -> s.price <= 6000 }
+        val saladList = listOf(
+            Salad("닭가슴살샐러드", 5900, "00001")
+            , Salad("훈제오리샐러드", 6900, "00002")
+            , Salad("겉절이", 2900, "00003")
+        )
+        println("all : " + saladList.all(canBuyPriceRange))
+        println("any : " + saladList.any(canBuyPriceRange))
+        println("count : " + saladList.count(canBuyPriceRange))
+        println("fileter : " + saladList.filter(canBuyPriceRange))
+        println("map : " + saladList.map { "${it.name} 의 가격은 <${it.price}> 입니다." }) // params 가 하나인 경우 it 키워드 접근 가능
+        println("find : " + saladList.find(canBuyPriceRange)) // 무조건 1개 요소만 반환
+        println("group by : " + saladList.groupBy { it.code }) // Map<String, List<T> 반환
+
+        val addList = listOf(Salad("콥샐러드", 4900, "00004"))
+        val mergeList = listOf(saladList, addList)
+        println("flatMap (merge) : " + mergeList.flatMap { it.toList() })
+    }
+
+    @Test
     fun testExtenstionsString() {
         val str = "Hello. jinBro"
         Assert.assertEquals("o", str.lastString())
