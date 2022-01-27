@@ -11,22 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lotto">
         <activity
-            android:name=".AbsoluteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
+            android:name=".TestActivity"
             android:exported="false" />
         <activity
             android:name=".ResultActivity"
+            android:theme="@style/AppTheme.Result"
             android:exported="false" />
         <activity
             android:name=".NameActivity"
+            android:theme="@style/AppTheme.Name"
             android:exported="false" />
         <activity
             android:name=".ConstellationActivity"
+            android:theme="@style/AppTheme.Constellation"
             android:exported="false" />
         <activity
-            android:name=".TestActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

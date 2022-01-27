@@ -13,4 +13,29 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- 결과화면 theme -->
+    <style name="AppTheme.Result" parent="Theme.Lotto">
+        <item name="colorPrimary">@color/colorPrimaryResult</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkResult</item>
+        <item name="colorAccent">@color/colorAccentResult</item>
+    </style>
+
+    <!-- 별자리 입력화면 theme -->
+    <style name="AppTheme.Constellation" parent="Theme.Lotto">
+        <item name="colorPrimary">@color/colorPrimaryConstellation</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkConstellation</item>
+        <item name="colorAccent">@color/colorAccentConstellation</item>
+        <item name="colorButtonNormal">@color/colorButtonConstellation</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- 이름 입력화면 theme -->
+    <style name="AppTheme.Name" parent="Theme.Lotto">
+        <item name="colorPrimary">@color/colorPrimaryName</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkName</item>
+        <item name="colorAccent">@color/colorAccentName</item>
+        <item name="colorButtonNormal">@color/colorButtonName</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 </resources>
