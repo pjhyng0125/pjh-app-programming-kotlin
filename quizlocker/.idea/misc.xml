@@ -3,11 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/drawable/progress.xml" value="0.290625" />
         <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/layout/activity_file_ex.xml" value="0.32472826086956524" />
         <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/layout/activity_pre_ex.xml" value="0.27447916666666666" />
         <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/layout/activity_pre_ex_main.xml" value="0.25" />
         <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/layout/activity_pre_fragment.xml" value="0.3641304347826087" />
+        <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/layout/activity_quiz_locker.xml" value="0.25" />
+        <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/layout/activity_screen_off_ex.xml" value="0.27447916666666666" />
         <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/xml/pre_ex.xml" value="0.3641304347826087" />
+        <entry key="..\:/pjh/works/android/pjh-app-programming-kotlin/quizlocker/app/src/main/res/xml/pref.xml" value="0.22" />
       </map>
     </option>
   </component>

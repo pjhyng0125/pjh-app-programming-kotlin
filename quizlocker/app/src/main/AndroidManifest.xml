@@ -3,6 +3,12 @@
     package="com.pjh.quizlocker">
     <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="18"/> -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 부팅 완료 브로드캐스트 수신을 위한 권한 요청 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Foreground 서비스 실행 권한 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!-- 진동 서비스 사용 권한 요청 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:name=".MainApplication"
@@ -13,23 +19,42 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Quizlocker">
         <activity
+            android:name=".QuizLockerActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".LockScreenService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".PreFragmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".PreExActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ScreenOffExActivity"
             android:exported="false" />
         <activity
             android:name=".FileExActivity"
             android:exported="false" />
         <activity
-            android:name=".PreFragmentActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- 암시적 intent로 실행되는 브로드캐스트 리시버 등록 -->
+        <receiver
+            android:name=".BootCompleteReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
