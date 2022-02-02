@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.preference.PreferenceManager
+import android.util.Log
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.SeekBar
@@ -42,12 +44,34 @@ class QuizLockerActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setContentView(R.layout.activity_quiz_locker)
 
-        // 퀴즈 데이터 get
-        val json = assets.open("capital.json").reader().readText()
-        val quizArr = JSONArray(json)
+        // 퀴즈 분류 get
+        val pref = PreferenceManager.getDefaultSharedPreferences(MainApplication.getAppContext())
+        val quizCategoryArr = pref.getStringSet("category", hashSetOf())
+        Log.d("quizlocker", "[quizCategoryArr] 퀴즈 분류 get 테스트 : ${quizCategoryArr}")
+
+        // 퀴즈 분류 분기
+        // TODO: JSONArray 병합 방법 찾아보기
+        var mergedList = ArrayList<Any>() as List<Any>
+        quizCategoryArr?.let {
+            for (item in quizCategoryArr) {
+                if (item.contains("수도")) {
+                    val jsonArr = getQuizArr("capital.json")
+                    mergedList = mergedList.plus(ArrayUtil.convert(jsonArr))
+                } else if (item.contains("역사")) {
+                    val jsonArr = getQuizArr("history.json")
+                    mergedList = mergedList.plus(ArrayUtil.convert(jsonArr))
+                } else if (item.contains("일반상식")) {
+                    val jsonArr = getQuizArr("commonSense.json")
+                    mergedList = mergedList.plus(ArrayUtil.convert(jsonArr))
+                }
+            }
+        }
+
+        Log.d("quizlocker", "[mergedList] 병합 List : ${mergedList}")
 
         // 퀴즈 선택
-        quiz = quizArr.getJSONObject(Random().nextInt(quizArr.length()))
+        val convertedArr = ArrayUtil.convert(mergedList)
+        quiz = convertedArr.getJSONObject(Random().nextInt(convertedArr.length()))
 
         // 퀴즈 show
         findViewById<TextView>(R.id.quizLabel).text = quiz?.getString("question")
@@ -97,6 +121,13 @@ class QuizLockerActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    // 퀴즈 데이터 JSONArray get
+    fun getQuizArr(jsonFileNm: String): JSONArray {
+        var json = assets.open(jsonFileNm).reader().readText()
+        val quizJsonArr = JSONArray(json)
+        return quizJsonArr
     }
 
     // 정답 체크

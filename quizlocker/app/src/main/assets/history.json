@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "question": "한국전쟁\n침략 시발점은?",
+    "choice1": "남한",
+    "choice2": "북한",
+    "answer": "북한"
+  },
+  {
+    "id": 2,
+    "question": "한국\n강제점령한 나라는?",
+    "choice1": "일본",
+    "choice2": "중국",
+    "answer": "일본"
+  },
+  {
+    "id": 3,
+    "question": "한국제외\n분단국가였전 나라는?",
+    "choice1": "독일",
+    "choice2": "프랑스",
+    "answer": "독일"
+  }
+]

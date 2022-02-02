@@ -12,6 +12,7 @@ import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
     val fragment = MyPreferenceFragment()
+    val selectedCategorySet = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
