@@ -130,11 +130,12 @@ class QuizLockerActivity : AppCompatActivity() {
 
     // JSONArray 병합
     fun mergeJsonArray(target: JSONArray, source: JSONArray): JSONArray {
+        var merge:JSONArray = target
         for (i in 0 until source.length()) {
             var jsonObj: JSONObject = source.getJSONObject(i)
-            target.put(jsonObj)
+            merge.put(jsonObj)
         }
-        return target
+        return merge
     }
 
     // 정답 체크
