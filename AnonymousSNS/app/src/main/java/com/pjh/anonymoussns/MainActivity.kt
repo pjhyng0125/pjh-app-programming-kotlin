@@ -156,6 +156,26 @@ class MainActivity : AppCompatActivity() {
             holder.contentsText.text = post.message
             holder.timeTextView.text = getDiffTimeText(post.writeTime as Long)
             holder.commentCountText.text = "0"
+
+            // 도전 과제 1 : 댓글 개수 출력
+            FirebaseDatabase.getInstance().getReference("/Comments/${post.postId}")
+                .addValueEventListener(object : ValueEventListener {
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()) {
+                            Log.d("MainActivity" , "################# snapshot.childrenCount : ${post.postId} ${snapshot.childrenCount}")
+                            holder.commentCountText.text = snapshot.childrenCount.toString()
+                        }
+                    }
+                })
+
+            holder.itemView.setOnClickListener {
+                val intent = Intent(this@MainActivity, DetailActivity::class.java)
+                intent.putExtra("postId", post.postId)
+                startActivity(intent)
+            }
         }
     }
 

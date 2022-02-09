@@ -1,7 +1,7 @@
 package com.pjh.anonymoussns
 
 class Comment {
-    var commitId = ""
+    var commentId = ""
     var postId = ""
     var writerId = ""
     var message = ""
